@@ -6,7 +6,7 @@ class OauthUser < DomainModel
   validates_presence_of :end_user_id
   validates_presence_of :provider_id
 
-  named_scope :by_provider, lambda { |provider| {:conditions => {:provider => provider.option_name, :provider_id => provider.provider_id}} }
+  scope :by_provider, lambda { |provider| {:conditions => {:provider => provider.option_name, :provider_id => provider.provider_id}} }
 
   def name
     if self.first_name && self.last_name
