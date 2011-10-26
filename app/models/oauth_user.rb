@@ -22,7 +22,7 @@ class OauthUser < DomainModel
     user = OauthUser.by_provider(provider).find(:first)
     return user if user
 
-    user = OauthUser.new :provider => provider.option_name, :provider_id => provider.provider_id
+    user = OauthUser.new :provider => provider.option_name, :provider_id => provider.provider_id, :email => provider.get_oauth_user_data[:email]
     user.push_end_user(myself)
     user.save
     user
