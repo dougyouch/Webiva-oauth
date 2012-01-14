@@ -1,5 +1,6 @@
 
 module OauthProvider
+  FACEBOOK = 'Facebook'
 
   class Base
     include HandlerActions
